@@ -6,13 +6,13 @@
 #    By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 12:14:15 by migusant          #+#    #+#              #
-#    Updated: 2025/05/13 15:19:06 by migusant         ###   ########.fr        #
+#    Updated: 2025/05/13 16:07:31 by migusant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-CFILES = ft_printf.c ft_printf_utils.c ft_printf_hex.c
+CFILES = ft_printf.c ft_printf_utils.c
 
 OFILES = $(CFILES:.c=.o)
 
