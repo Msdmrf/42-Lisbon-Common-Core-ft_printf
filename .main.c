@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:30:56 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:31:35 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(void)
 {
 	int		count1;
 	int		count2;
-	char	*str;
 	int		num;
+	char	*str;
 	char	*null_str = NULL;
 	void	*null_ptr = NULL;
 
