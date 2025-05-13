@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:31:46 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 13:25:13 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:00:19 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,46 @@ int	ft_putstr(char *str)
 	return (i);
 }
 
-int	ft_putnbr(int n)
+int	ft_putnbr(unsigned int n, int is_signed)
 {
 	int	len;
 
 	len = 0;
-	if (n == -2147483648)
-		return (ft_putstr("-2147483648"));
-	if (n < 0)
+	if (is_signed && (int)n < 0)
 	{
+		if ((int)n == -2147483648)
+			return (ft_putstr("-2147483648"));
 		len += ft_putchar('-');
-		n = -n;
+		n = -(int)n;
 	}
 	if (n >= 10)
-		len += ft_putnbr(n / 10);
+		len += ft_putnbr(n / 10, 0);
 	len += ft_putchar((n % 10) + '0');
 	return (len);
 }
 
-int	ft_putunbr(unsigned int n)
+int	ft_puthex(unsigned long n, char format)
 {
 	int	len;
 
 	len = 0;
-	if (n >= 10)
-		len += ft_putunbr(n / 10);
-	len += ft_putchar((n % 10) + '0');
+	if (n >= 16)
+		len += ft_puthex(n / 16, format);
+	if (format == 'x')
+		len += ft_putchar("0123456789abcdef"[n % 16]);
+	else if (format == 'X')
+		len += ft_putchar("0123456789ABCDEF"[n % 16]);
+	return (len);
+}
+
+int	ft_putptr(void *ptr)
+{
+	int	len;
+
+	len = 0;
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	len += ft_putstr("0x");
+	len += ft_puthex((unsigned long)ptr, 'x');
 	return (len);
 }

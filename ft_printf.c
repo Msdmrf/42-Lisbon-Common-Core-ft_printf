@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 13:38:21 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:08:38 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	ft_format(va_list args, const char format)
 	else if (format == 'p')
 		print_length = ft_putptr(va_arg(args, void *));
 	else if (format == 'd' || format == 'i')
-		print_length = ft_putnbr(va_arg(args, int));
+		print_length = ft_putnbr(va_arg(args, int), 1);
 	else if (format == 'u')
-		print_length = ft_putunbr(va_arg(args, unsigned int));
+		print_length = ft_putnbr(va_arg(args, unsigned int), 0);
 	else if (format == 'x' || format == 'X')
 		print_length = ft_puthex(va_arg(args, unsigned int), format);
 	else if (format == '%')

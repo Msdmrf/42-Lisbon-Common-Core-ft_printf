@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:44 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 13:16:23 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:01:06 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@
 int		ft_printf(const char *format, ...);
 int		ft_putchar(char c);
 int		ft_putstr(char *str);
-int		ft_putnbr(int n);
-int		ft_putunbr(unsigned int n);
+int   ft_putnbr(unsigned int n, int is_signed);
 int		ft_puthex(unsigned long n, char format);
 int		ft_putptr(void *ptr);
 
