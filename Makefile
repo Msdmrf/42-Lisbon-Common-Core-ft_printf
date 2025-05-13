@@ -6,7 +6,7 @@
 #    By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 12:14:15 by migusant          #+#    #+#              #
-#    Updated: 2025/05/13 13:34:08 by migusant         ###   ########.fr        #
+#    Updated: 2025/05/13 15:19:06 by migusant         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OFILES)
+	$(AR) $(NAME) $(OFILES)
 
 $(OFILES): $(CFILES)
 	$(CC) $(FLAGS) -c $^
-	$(AR) $(NAME) $(OFILES)
 
 clean:
 	$(RM) $(OFILES)
