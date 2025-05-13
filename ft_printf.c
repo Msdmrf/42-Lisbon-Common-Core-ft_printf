@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 13:29:58 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:38:21 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	va_start(args, format);
 	while (format[i])
-	{ 
+	{
 		if (format[i] == '%')
 		{
 			print_length += ft_format(args, format[i + 1]);
