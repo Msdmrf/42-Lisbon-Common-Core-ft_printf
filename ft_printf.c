@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 17:50:45 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 21:58:03 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_format(va_list args, const char format)
 		return (ft_puthex(va_arg(args, unsigned int), format));
 	if (format == '%')
 		return (ft_putchar('%'));
-	return (0);
+	return (ft_putchar('%') + ft_putchar(format));
 }
 
 int	ft_printf(const char *format, ...)
@@ -37,18 +37,17 @@ int	ft_printf(const char *format, ...)
 	int		print_length;
 	int		i;
 
-	// if (!format)
-	// 	return (-1);
+	if (!format)
+	 	return (-1);
+	if (write(1, "", 0) == -1)
+		return (-1);
 	print_length = 0;
 	i = 0;
 	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			print_length += ft_format(args, format[i + 1]);
-			i++;
-		}
+			print_length += ft_format(args, format[++i]);
 		else
 			print_length += ft_putchar(format[i]);
 		i++;

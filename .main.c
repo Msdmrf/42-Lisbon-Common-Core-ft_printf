@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:31:35 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:38:19 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ int	main(void)
 		42, "test", 255, &num, 42, 'Z');
 	count2 = printf("Mixed test: %d %s %x %% %p %u %c\n", 
 		42, "test", 255, &num, 42, 'Z');
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+
+	printf("=== Edge Cases - Invalid Format Specifiers ===\n");
+	count1 = ft_printf("Invalid specifiers: %z %y %w\n");
+	count2 = printf("Invalid specifiers: %z %y %w\n");
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
