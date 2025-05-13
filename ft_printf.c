@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 15:08:38 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:33:12 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 static int	ft_format(va_list args, const char format)
 {
-	int	print_length;
-
-	print_length = 0;
 	if (format == 'c')
-		print_length = ft_putchar(va_arg(args, int));
-	else if (format == 's')
-		print_length = ft_putstr(va_arg(args, char *));
-	else if (format == 'p')
-		print_length = ft_putptr(va_arg(args, void *));
-	else if (format == 'd' || format == 'i')
-		print_length = ft_putnbr(va_arg(args, int), 1);
-	else if (format == 'u')
-		print_length = ft_putnbr(va_arg(args, unsigned int), 0);
-	else if (format == 'x' || format == 'X')
-		print_length = ft_puthex(va_arg(args, unsigned int), format);
-	else if (format == '%')
-		print_length = ft_putchar('%');
-	return (print_length);
+		return (ft_putchar(va_arg(args, int)));
+	if (format == 's')
+		return (ft_putstr(va_arg(args, char *)));
+	if (format == 'p')
+		return (ft_putptr(va_arg(args, unsigned long)));
+	if (format == 'd' || format == 'i')
+		return (ft_putnbr(va_arg(args, int), 1));
+	if (format == 'u')
+		return (ft_putnbr(va_arg(args, unsigned int), 0));
+	if (format == 'x' || format == 'X')
+		return (ft_puthex(va_arg(args, unsigned int), format));
+	if (format == '%')
+		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)

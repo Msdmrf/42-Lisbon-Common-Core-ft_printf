@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:31:46 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 16:00:19 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:33:30 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_puthex(unsigned long n, char format)
 	return (len);
 }
 
-int	ft_putptr(void *ptr)
+int	ft_putptr(unsigned long ptr)
 {
 	int	len;
 
@@ -72,6 +72,6 @@ int	ft_putptr(void *ptr)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	len += ft_putstr("0x");
-	len += ft_puthex((unsigned long)ptr, 'x');
+	len += ft_puthex(ptr, 'x');
 	return (len);
 }
