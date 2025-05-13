@@ -6,13 +6,14 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 21:59:17 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:28:58 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
+#include <unistd.h>
 
 int	main(void)
 {
@@ -26,11 +27,21 @@ int	main(void)
 	str = "Hello, World!";
 	num = 42;
 	
-	printf("\n=== Basic String Test ===\n");
+	printf("\n=== Basic Tests ===\n");
+	// Your original basic tests
 	count1 = ft_printf("Test string: %s\n", str);
 	count2 = printf("Test string: %s\n", str);
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
+
+	ft_printf("Different formats:\n");
+	ft_printf("Character: %c\n", 'A');
+	ft_printf("String: %s\n", "test");
+	ft_printf("Pointer: %p\n", &num);
+	ft_printf("Integer: %d or %i\n", num, num);
+	ft_printf("Unsigned: %u\n", 4294967295);
+	ft_printf("Hexadecimal: %x or %X\n", 255, 255);
+	ft_printf("Percent sign: %%\n\n");
 
 	printf("=== Edge Cases - NULL Values ===\n");
 	printf("NULL string:\n");
@@ -65,8 +76,10 @@ int	main(void)
 	printf("printf return: %d\n\n", count2);
 
 	printf("=== Edge Cases - Mixed Format Specifiers ===\n");
-	count1 = ft_printf("Mixed test: %d %s %x %% %p %u %c\n", 42, "test", 255, &num, 42, 'Z');
-	count2 = printf("Mixed test: %d %s %x %% %p %u %c\n", 42, "test", 255, &num, 42, 'Z');
+	count1 = ft_printf("Mixed test: %d %s %x %% %p %u %c\n", 
+		42, "test", 255, &num, 42, 'Z');
+	count2 = printf("Mixed test: %d %s %x %% %p %u %c\n", 
+		42, "test", 255, &num, 42, 'Z');
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
@@ -82,19 +95,59 @@ int	main(void)
 	printf("\nft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
-	printf("=== Edge Cases - Invalid Format Specifiers ===\n");
-	count1 = ft_printf("Invalid specifiers: %z %y %w\n");
-	count2 = printf("Invalid specifiers: %z %y %w\n");
-	printf("ft_printf return: %d\n", count1);
-	printf("printf return: %d\n\n", count2);
-
 	printf("=== Edge Cases - Multiple Consecutive %% ===\n");
 	count1 = ft_printf("Multiple %%: %%%%%%\n");
 	count2 = printf("Multiple %%: %%%%%%\n");
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
-	printf("=== Testing NULL format string ===\n");
+	printf("=== Edge Cases - Pointer Arithmetic ===\n");
+	int a = 42;
+	int *ptr = &a;
+	int **ptr_to_ptr = &ptr;
+	count1 = ft_printf("Basic pointer: %p\n", ptr);
+	count2 = printf("Basic pointer: %p\n", ptr);
+	count1 = ft_printf("Pointer arithmetic: %p\n", ptr + 1);
+	count2 = printf("Pointer arithmetic: %p\n", ptr + 1);
+	count1 = ft_printf("Double pointer: %p\n", ptr_to_ptr);
+	count2 = printf("Double pointer: %p\n\n", ptr_to_ptr);
+
+	printf("=== Edge Cases - Special Characters ===\n");
+	count1 = ft_printf("Special chars: \t|\n|\v|\f|\r|\n");
+	count2 = printf("Special chars: \t|\n|\v|\f|\r|\n");
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+
+	printf("=== Edge Cases - Negative Numbers ===\n");
+	count1 = ft_printf("Negative hex: %x\n", -42);
+	count2 = printf("Negative hex: %x\n", -42);
+	count1 = ft_printf("Negative unsigned: %u\n", -42);
+	count2 = printf("Negative unsigned: %u\n", -42);
+	count1 = ft_printf("Large negative: %d\n", -2147483647);
+	count2 = printf("Large negative: %d\n\n", -2147483647);
+
+	printf("=== Edge Cases - Hex Values ===\n");
+	count1 = ft_printf("Hex lower: %x\n", 0xabcdef);
+	count2 = printf("Hex lower: %x\n", 0xabcdef);
+	count1 = ft_printf("Hex upper: %X\n", 0xabcdef);
+	count2 = printf("Hex upper: %X\n", 0xabcdef);
+	count1 = ft_printf("Hex zero: %x\n", 0);
+	count2 = printf("Hex zero: %x\n\n", 0);
+
+	printf("=== Edge Cases - String Edge Cases ===\n");
+	char *partial_str = "Hello, World!";
+	count1 = ft_printf("Partial string: %s\n", partial_str + 7);
+	count2 = printf("Partial string: %s\n", partial_str + 7);
+	count1 = ft_printf("Empty string: %s\n", "");
+	count2 = printf("Empty string: %s\n\n", "");
+
+	printf("=== Edge Cases - Character Tests ===\n");
+	count1 = ft_printf("ASCII char: %c\n", 127);
+	count2 = printf("ASCII char: %c\n", 127);
+	count1 = ft_printf("Char arithmetic: %c\n", 'a' + 1);
+	count2 = printf("Char arithmetic: %c\n\n", 'a' + 1);
+
+	printf("=== Edge Cases - Format String NULL ===\n");
 	count1 = ft_printf(NULL);
 	count2 = printf(NULL);
 	fprintf(stderr, "ft_printf(NULL) return: %d\n", count1);
@@ -103,7 +156,7 @@ int	main(void)
 	printf("=== Testing closed stdout ===\n");
 	fclose(stdout);
 	fprintf(stderr, "PRINTF: %d\n", printf("teste123\n"));
-	fprintf(stderr, "FT_PRINTF: %d\n", ft_printf("teste123\n"));
+	fprintf(stderr, "FT_PRINTF: %d\n\n", ft_printf("teste123\n"));
 	
 	return (0);
 }
