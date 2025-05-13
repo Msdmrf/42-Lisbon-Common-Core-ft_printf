@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:28:58 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 22:30:56 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(void)
 	num = 42;
 	
 	printf("\n=== Basic Tests ===\n");
-	// Your original basic tests
 	count1 = ft_printf("Test string: %s\n", str);
 	count2 = printf("Test string: %s\n", str);
 	printf("ft_printf return: %d\n", count1);
