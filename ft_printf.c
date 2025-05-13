@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 17:33:12 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/13 17:50:45 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	ft_printf(const char *format, ...)
 	int		print_length;
 	int		i;
 
+	// if (!format)
+	// 	return (-1);
 	print_length = 0;
 	i = 0;
 	va_start(args, format);
