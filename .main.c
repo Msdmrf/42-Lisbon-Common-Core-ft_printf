@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:38:19 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/14 10:44:47 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,47 @@ int	main(void)
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
-	ft_printf("Different formats:\n");
-	ft_printf("Character: %c\n", 'A');
-	ft_printf("String: %s\n", "test");
-	ft_printf("Pointer: %p\n", &num);
-	ft_printf("Integer: %d or %i\n", num, num);
-	ft_printf("Unsigned: %u\n", 4294967295);
-	ft_printf("Hexadecimal: %x or %X\n", 255, 255);
-	ft_printf("Percent sign: %%\n\n");
+	count1 = ft_printf("Character: %c\n", 'A');
+	count2 = printf("Character: %c\n", 'A');
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("String test:\n");
+	count1 = ft_printf("String: %s\n", "test");
+	count2 = printf("String: %s\n", "test");
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("Pointer test:\n");
+	count1 = ft_printf("Pointer: %p\n", &num);
+	count2 = printf("Pointer: %p\n", &num);
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("Integer test:\n");
+	count1 = ft_printf("Integer: %d or %i\n", num, num);
+	count2 = printf("Integer: %d or %i\n", num, num);
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("Unsigned test:\n");
+	count1 = ft_printf("Unsigned: %u\n", 4294967295);
+	count2 = printf("Unsigned: %u\n", 4294967295);
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("Hexadecimal test:\n");
+	count1 = ft_printf("Hexadecimal: %x or %X\n", 255, 255);
+	count2 = printf("Hexadecimal: %x or %X\n", 255, 255);
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
+	printf("Percent sign test:\n");
+	count1 = ft_printf("Percent sign: %%\n");
+	count2 = printf("Percent sign: %%\n");
+	printf("ft_printf return: %d\n", count1);
+	printf("printf return: %d\n\n", count2);
+	
 
 	printf("=== Edge Cases - NULL Values ===\n");
 	printf("NULL string:\n");
@@ -82,9 +115,14 @@ int	main(void)
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
+	//	Reserved letters in printf:
+  //		Format specifiers: c, s, p, d, i, u, x, X, n, f, e, E, g, G, a, A, o
+  //		Length modifiers: h, l, j, z, t, L
+	//		No special meaning in printf: b, k, m, q, r, v, w, y 
+	
 	printf("=== Edge Cases - Invalid Format Specifiers ===\n");
-	count1 = ft_printf("Invalid specifiers: %z %y %w\n");
-	count2 = printf("Invalid specifiers: %z %y %w\n");
+	count1 = ft_printf("Invalid specifiers: %v %w %y\n");
+	count2 = printf("Invalid specifiers: %v %w %y\n");
 	printf("ft_printf return: %d\n", count1);
 	printf("printf return: %d\n\n", count2);
 
