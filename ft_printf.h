@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:44 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 16:44:04 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:54:09 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+# define HEX_U "0123456789ABCDEF"
+# define HEX_L "0123456789abcdef"
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);

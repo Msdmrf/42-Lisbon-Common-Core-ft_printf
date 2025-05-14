@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:31:46 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:45:00 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:52:20 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ int	ft_puthex(unsigned long n, char format)
 	if (n >= 16)
 		len += ft_puthex(n / 16, format);
 	if (format == 'x')
-		len += ft_putchar("0123456789abcdef"[n % 16]);
+		len += ft_putchar(HEX_L[n % 16]);
 	else if (format == 'X')
-		len += ft_putchar("0123456789ABCDEF"[n % 16]);
+		len += ft_putchar(HEX_U[n % 16]);
 	return (len);
 }
 

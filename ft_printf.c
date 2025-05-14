@@ -6,7 +6,7 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:14:30 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/13 22:42:57 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/14 14:47:29 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ int	ft_printf(const char *format, ...)
 	int		print_length;
 	int		i;
 
-	if (!format)
-		return (-1);
-	if (write(1, "", 0) == -1)
+	if (!format || write(1, "", 0) == -1)
 		return (-1);
 	print_length = 0;
 	i = 0;
