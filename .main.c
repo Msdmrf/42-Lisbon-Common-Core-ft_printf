@@ -6,11 +6,12 @@
 /*   By: migusant <migusant@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 13:30:43 by migusant          #+#    #+#             */
-/*   Updated: 2025/05/14 10:44:47 by migusant         ###   ########.fr       */
+/*   Updated: 2025/05/15 11:46:33 by migusant         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <gnu/libc-version.h>
 #include <stdio.h>
 #include <limits.h>
 #include <unistd.h>
@@ -26,6 +27,8 @@ int	main(void)
 
 	str = "Hello, World!";
 	num = 42;
+	
+	printf("\nGNU libc version: %s\n", gnu_get_libc_version());
 	
 	printf("\n=== Basic Tests ===\n");
 	count1 = ft_printf("Test string: %s\n", str);
